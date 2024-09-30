@@ -1,0 +1,11 @@
+<div class="todos-container">
+   <h1>Todo List for User {{ userId }}</h1>
+
+   <button mat-raised-button color="primary" (click)="goBack()">Back</button>
+
+   <mat-card *ngFor="let todo of todos" class="todo-item">
+      <mat-checkbox [(ngModel)]="todo.completed" name="completed{{ todo.id }}" class="todo-checkbox">
+         {{ todo.title }}
+      </mat-checkbox>
+   </mat-card>
+</div>

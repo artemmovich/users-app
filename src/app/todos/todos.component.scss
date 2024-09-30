@@ -1,0 +1,30 @@
+.todos-container {
+   max-width: 600px;
+   margin: 20px auto;
+ }
+ 
+ .todo-item {
+   margin-bottom: 10px;
+   padding: 15px;
+   border: 1px solid #e0e0e0;
+   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+   display: flex;
+   align-items: center;
+ }
+ 
+ .todo-checkbox {
+   width: 100%;
+ }
+ button {
+   margin-bottom: 20px; // Adds some space above the button
+ }
+ 
+ .mat-button {
+   background-color: #1976d2; // Example custom background color
+   color: white; // Change text color to white
+ }
+ 
+ .mat-button:hover {
+   background-color: #125a92; // Darker background on hover
+ }
+ 

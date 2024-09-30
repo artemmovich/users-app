@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 interface User {
   id: number;
@@ -16,7 +17,9 @@ export class UserListComponent implements OnInit {
   users: User[] = [];
   displayedColumns: string[] = ['name', 'email', 'actions'];
   dataSource = new MatTableDataSource<User>(this.users);
-  selectedUser: User | null = null; // Змінна для редагованого користувача
+  selectedUser: User | null = null; 
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.fetchUsers();
@@ -43,7 +46,7 @@ export class UserListComponent implements OnInit {
         this.addUser(userForm.value);
       }
       userForm.reset();
-      this.selectedUser = null; // Скидаємо редагування після сабміту
+      this.selectedUser = null; 
     }
   }
 
@@ -57,12 +60,10 @@ export class UserListComponent implements OnInit {
     this.dataSource.data = this.users;
   }
 
-  // Функція для редагування користувача
   editUser(user: User) {
-    this.selectedUser = { ...user }; // Копіюємо дані користувача для редагування
+    this.selectedUser = { ...user }; 
   }
 
-  // Оновлення користувача
   updateUser(updatedUser: { name: string; email: string }) {
     if (this.selectedUser) {
       const userIndex = this.users.findIndex(user => user.id === this.selectedUser!.id);
@@ -77,9 +78,14 @@ export class UserListComponent implements OnInit {
     }
   }
 
-  // Видалення користувача
   deleteUser(user: User) {
     this.users = this.users.filter(u => u.id !== user.id);
     this.dataSource.data = this.users;
+  }
+
+  
+  showTodos(userId: number) {
+   
+    this.router.navigate(['/todos', userId]); 
   }
 }
