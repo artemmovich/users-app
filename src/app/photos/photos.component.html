@@ -1,8 +1,14 @@
 <div class="photos-container">
   <h1>Zdjęcia albumu. {{ albumId }}</h1>
-  <div class="photos-grid">
-    <div *ngFor="let photo of photos">
-      <img [src]="photo.url" [alt]="photo.title" />
-      <p>{{ photo.title }}</p>
-    </div>
-  </div>
+  <button mat-raised-button color="primary" class="back-button" [routerLink]="['/albums']">Powrót</button>
+  <mat-grid-list cols="3" rowHeight="200px" gutterSize="15px">
+    <mat-grid-tile *ngFor="let photo of photos">
+      <mat-card class="photo-card">
+        <img mat-card-image [src]="photo.url" [alt]="photo.title" />
+        <mat-card-content>
+          <h2 class="photo-title">{{ photo.title }}</h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
