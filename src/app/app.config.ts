@@ -11,13 +11,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './user-list/user-list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 import { AddUserComponent } from './add-user/add-user.component';
 import { RouterModule } from '@angular/router';
-import {routing} from './app.routes'; 
+import { routing } from './app.routes'; 
 import { TodosComponent } from './todos/todos.component'; 
 import { MatListModule } from '@angular/material/list';
 import { AlbumsComponent } from './albums/albums.component';
+import { PhotosComponent } from './photos/photos.component'; // Додайте імпорт PhotosComponent
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AlbumsComponent } from './albums/albums.component';
     AddUserComponent,
     TodosComponent,
     AlbumsComponent,
+    PhotosComponent, // Додайте PhotosComponent до декларацій
   ],
   imports: [
     BrowserAnimationsModule,

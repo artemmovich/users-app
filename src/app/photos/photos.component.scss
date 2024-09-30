@@ -1,15 +1,16 @@
-.albums-container {
+.photos-container {
    padding: 16px;
    background-color: #f5f5f5;
  }
  
- .album-list {
+ .photo-list {
    display: flex;
-   flex-direction: column;
+   flex-wrap: wrap;
    gap: 16px;
  }
  
- .album-card {
+ .photo-card {
+   width: 200px; 
    border-radius: 8px;
    transition: transform 0.2s;
  
@@ -19,11 +20,3 @@
    }
  }
  
- .album-title {
-   font-size: 1.5rem;
-   font-weight: bold;
-   color: #3f51b5; 
- }
- button {
-   margin-bottom: 25px;
- }

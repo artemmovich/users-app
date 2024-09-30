@@ -1,0 +1,8 @@
+<div class="photos-container">
+  <h1>Zdjęcia albumu. {{ albumId }}</h1>
+  <div class="photos-grid">
+    <div *ngFor="let photo of photos">
+      <img [src]="photo.url" [alt]="photo.title" />
+      <p>{{ photo.title }}</p>
+    </div>
+  </div>

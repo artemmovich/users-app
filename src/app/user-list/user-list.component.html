@@ -1,13 +1,15 @@
 <div>
-  <h1>Список Користувачів</h1>
+  <h1>Lista użytkowników.</h1>
 
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="user-form">
-    <button mat-raised-button color="accent" (click)="goToAlbums()">Перейти до Альбомів</button>
+    <button mat-raised-button color="accent" (click)="goToAlbums()">Przejdź do albumów.</button>
     <mat-form-field appearance="fill">
-      <mat-label>Ім'я</mat-label>
+      <mat-label>
+        Imię.</mat-label>
       <input matInput name="name" ngModel [ngModel]="selectedUser?.name" required />
       <mat-error *ngIf="userForm.submitted && !userForm.controls['name']?.valid">
-        Ім'я є обов'язковим.
+       
+Imię jest wymagane.
       </mat-error>
     </mat-form-field>
 
@@ -15,18 +17,20 @@
       <mat-label>Email</mat-label>
       <input matInput name="email" ngModel [ngModel]="selectedUser?.email" required />
       <mat-error *ngIf="userForm.submitted && !userForm.controls['email']?.valid">
-        Email є обов'язковим.
+       
+Email jest wymagany.
       </mat-error>
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit">
-      {{ selectedUser ? 'Оновити Користувача' : 'Додати Користувача' }}
+      {{ selectedUser ? 'Zaktualizować użytkownika.' : '
+Dodać użytkownika.' }}
     </button>
   </form>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Ім'я </th>
+      <th mat-header-cell *matHeaderCellDef> Imię.</th>
       <td mat-cell *matCellDef="let user"> {{ user.name }} </td>
     </ng-container>
 
@@ -36,11 +40,11 @@
     </ng-container>
 
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Дії </th>
+      <th mat-header-cell *matHeaderCellDef> actions </th>
       <td mat-cell *matCellDef="let user">
-        <button mat-button (click)="editUser(user)">Редагувати</button>
-        <button mat-button color="warn" (click)="deleteUser(user)">Видалити</button>
-        <button mat-button (click)="showTodos(user.id)">Показати Todos</button>
+        <button mat-button (click)="editUser(user)">Edytować.</button>
+        <button mat-button color="warn" (click)="deleteUser(user)">Usunąć.</button>
+        <button mat-button (click)="showTodos(user.id)">Pokaż Todos.</button>
       </td>
     </ng-container>
 
