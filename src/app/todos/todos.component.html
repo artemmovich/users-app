@@ -1,11 +1,23 @@
 <div class="todos-container">
    <h1>Todo List for User {{ userId }}</h1>
-
+ 
    <button mat-raised-button color="primary" (click)="goBack()">Back</button>
-
+ 
+   <form class="add-todo-form" (ngSubmit)="editTodoId ? saveEdit() : addTodo()">
+     <mat-form-field appearance="fill">
+       <mat-label>New Todo</mat-label>
+       <input matInput [(ngModel)]="newTodoTitle" name="newTodoTitle" required />
+     </mat-form-field>
+     <button mat-raised-button color="accent" type="submit">
+       {{ editTodoId ? 'Save Todo' : 'Add Todo' }}
+     </button>
+   </form>
+ 
    <mat-card *ngFor="let todo of todos" class="todo-item">
-      <mat-checkbox [(ngModel)]="todo.completed" name="completed{{ todo.id }}" class="todo-checkbox">
-         {{ todo.title }}
-      </mat-checkbox>
+     <mat-checkbox [(ngModel)]="todo.completed" name="completed{{ todo.id }}" class="todo-checkbox">
+       {{ todo.title }}
+     </mat-checkbox>
+     <button mat-button color="warn" (click)="startEditing(todo)">Edit</button>
    </mat-card>
-</div>
+ </div>
+ 

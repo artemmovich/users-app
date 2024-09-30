@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
@@ -26,12 +28,14 @@ import { MatListModule } from '@angular/material/list';
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
+    MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
     MatTableModule,
     MatListModule,
     MatCardModule,
     MatIconModule,
+    
     MatInputModule,
     FormsModule,
     routing
