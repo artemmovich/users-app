@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppComponent } from './app.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserListComponent } from './user-list/user-list.component';
 import { FormsModule } from '@angular/forms';
@@ -17,25 +17,27 @@ import { RouterModule } from '@angular/router';
 import {routing} from './app.routes'; 
 import { TodosComponent } from './todos/todos.component'; 
 import { MatListModule } from '@angular/material/list';
+import { AlbumsComponent } from './albums/albums.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
     AddUserComponent,
-    TodosComponent
+    TodosComponent,
+    AlbumsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     MatFormFieldModule,
+    MatGridListModule,
     MatButtonModule,
     MatCheckboxModule,
     MatTableModule,
     MatListModule,
     MatCardModule,
     MatIconModule,
-    
     MatInputModule,
     FormsModule,
     routing

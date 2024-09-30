@@ -2,6 +2,7 @@
   <h1>Список Користувачів</h1>
 
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" class="user-form">
+    <button mat-raised-button color="accent" (click)="goToAlbums()">Перейти до Альбомів</button>
     <mat-form-field appearance="fill">
       <mat-label>Ім'я</mat-label>
       <input matInput name="name" ngModel [ngModel]="selectedUser?.name" required />

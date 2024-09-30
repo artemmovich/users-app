@@ -1,0 +1,27 @@
+.albums-container {
+   padding: 16px;
+   background-color: #f5f5f5;
+ }
+ 
+ .album-list {
+   display: flex;
+   flex-direction: column;
+   gap: 16px;
+ }
+ 
+ .album-card {
+   border-radius: 8px;
+   transition: transform 0.2s;
+ 
+   &:hover {
+     transform: scale(1.02);
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+   }
+ }
+ 
+ .album-title {
+   font-size: 1.5rem;
+   font-weight: bold;
+   color: #3f51b5; // Змінюємо колір тексту на синій
+ }
+ 

@@ -24,6 +24,9 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.fetchUsers();
   }
+  goToAlbums() {
+    this.router.navigate(['/albums']);
+  }
 
   fetchUsers() {
     fetch('https://jsonplaceholder.typicode.com/users')
