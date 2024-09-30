@@ -14,12 +14,9 @@ interface User {
 })
 export class UserListComponent implements OnInit {
   users: User[] = [];
-  displayedColumns: string[] = ['name', 'email'];
-  dataSource: MatTableDataSource<User>;
-
-  constructor() {
-    this.dataSource = new MatTableDataSource<User>(this.users);
-  }
+  displayedColumns: string[] = ['name', 'email', 'actions'];
+  dataSource = new MatTableDataSource<User>(this.users);
+  selectedUser: User | null = null; // Змінна для редагованого користувача
 
   ngOnInit() {
     this.fetchUsers();
@@ -40,8 +37,13 @@ export class UserListComponent implements OnInit {
 
   onSubmit(userForm: any) {
     if (userForm.valid) {
-      this.addUser(userForm.value);
-      userForm.reset(); // Очищення форми після додавання користувача
+      if (this.selectedUser) {
+        this.updateUser(userForm.value);
+      } else {
+        this.addUser(userForm.value);
+      }
+      userForm.reset();
+      this.selectedUser = null; // Скидаємо редагування після сабміту
     }
   }
 
@@ -51,9 +53,33 @@ export class UserListComponent implements OnInit {
       name: user.name,
       email: user.email
     };
-
-    console.log('Adding user:', newUser); // Перевірка в консолі
     this.users.push(newUser);
-    this.dataSource.data = [...this.users]; // Примусове оновлення dataSource
+    this.dataSource.data = this.users;
+  }
+
+  // Функція для редагування користувача
+  editUser(user: User) {
+    this.selectedUser = { ...user }; // Копіюємо дані користувача для редагування
+  }
+
+  // Оновлення користувача
+  updateUser(updatedUser: { name: string; email: string }) {
+    if (this.selectedUser) {
+      const userIndex = this.users.findIndex(user => user.id === this.selectedUser!.id);
+      if (userIndex > -1) {
+        this.users[userIndex] = {
+          ...this.selectedUser,
+          name: updatedUser.name,
+          email: updatedUser.email
+        };
+        this.dataSource.data = this.users;
+      }
+    }
+  }
+
+  // Видалення користувача
+  deleteUser(user: User) {
+    this.users = this.users.filter(u => u.id !== user.id);
+    this.dataSource.data = this.users;
   }
 }
